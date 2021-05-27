@@ -1,3 +1,25 @@
+
+body {
+    letter-spacing: 0.03em;
+    margin: 0;
+    overflow-x: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+a {
+    text-decoration: none;
+    color: black !important;
+}
+a:hover {
+    text-decoration: none;
+    color: black !important;
+}
+
+main {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 7vw;
+}
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -11,3 +33,31 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+h1 {
+    font-family: "HKGrotesk-Bold";
+    font-size: 1.9vw;
+    letter-spacing: 0.1vw;
+    text-transform: uppercase;
+}
+
+
+h4 {
+    font-family: "HKGrotesk-Bold";
+    font-size: 1.1vw;
+    letter-spacing: 0.1vw;
+
+}
+
+h5 {
+    font-family: "HKGrotesk-Bold";
+    font-size: 0.9vw;
+    letter-spacing: 0.1vw;
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        margin-left: 15vw;
+        margin-top: 10vw;
+    }
+}

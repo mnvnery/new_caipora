@@ -1,2 +1,46 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<img class="header-img desktop" src="/assets/header.svg" alt="CAIPORA">
+<img class="header-img mobile" src="/assets/mobile-header.svg" alt="CAIPORA">
+
+
+<div class="map-grid">
+    <div class="venezuela-flex">
+        
+        <img class="locations" src="/assets/venezuela.webp" alt="venezuela">
+        <div class="dot-flex"><span class="dot dot-venezuela"></span><span class="dot-title dot-title-venezuela">VENEZUELA</span></div>
+    </div>
+    <div class="amazonia-flex">
+        <div class="dot-flex"><span class="dot dot-amazonia"></span><span class="dot-title dot-title-amazonia">AMAZÓNIA</span></div>
+        <div style="position: relative;">
+            <img class="locations" src="/assets/amazonia.webp" alt="amazonia">
+            
+        </div>
+    </div>
+    <canvas id='canvas' width=1920 height=1080 style='position: absolute; top:0; left: 0'></canvas>
+</div>
+
+<script>
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d'),
+    radius = 40;
+
+//prepare canvas
+ctx.fillStyle = '#F9E9D1'
+ctx.fillRect(0, 0, 1920, 1080);
+
+//prepare a 30% opacity eraser
+ctx.globalCompositeOperation = 'destination-out';
+
+// make random strokes around cursor while mouse moves
+canvas.onmousemove = function(e) {
+    var rect = this.getBoundingClientRect();
+    var r = this.getBoundingClientRect(),
+    x = e.clientX - r.left,
+    y = e.clientY - r.top;
+
+    ctx.beginPath();
+    ctx.moveTo(x + radius, y);
+    ctx.arc(x, y, radius, 0, 2*Math.PI);
+    ctx.fill();
+
+}
+</script>

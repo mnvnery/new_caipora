@@ -1,1 +1,98 @@
-// Specific CSS for your home-page
+.index {
+    height: 100vh;
+    width: 100vw;
+    background-color: $ocre;
+    overflow: hidden;
+}
+
+.header-img{
+    z-index: 3;
+    position: fixed;
+    top: 0;
+}
+
+.map-grid {
+    display: flex;
+    margin-top: 15vh;
+    margin-left: 10vw ;
+}
+
+.locations {
+    mix-blend-mode: multiply;
+    width: 35vw;
+    height: auto;
+}
+
+.amazonia-flex {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    margin-top: 25vh;
+    margin-left: 3vw;
+}
+
+.venezuela-flex {
+    display: flex;
+    align-items: flex-start;
+}
+
+.dot {
+    height: 1.1vw;
+    width: 1.1vw;
+    background-color: $blood;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot:hover {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: solid 2px $blood;
+    background-color: transparent;
+}
+
+.dot:hover + .dot-title {
+    visibility: visible;
+}
+
+.dot-flex {
+    display: flex;
+    align-items: baseline;
+    z-index: 3;
+}
+
+.dot-title {
+    margin-left: 1vw;
+    font-family: "Pangram-Bold";
+    letter-spacing: 0.15em;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.dot-venezuela {
+    margin-top: 5vh;
+    margin-left: 3vw;
+}
+
+.dot-amazonia {
+    margin-bottom: 5vh;
+    margin-left: 4vw;
+};
+
+@media only screen and (max-width: 600px) {
+    .mobile {
+        display: block;
+    }
+    .desktop {
+        display: none;
+    }
+}
+@media only screen and (min-width: 600px) {
+    .desktop {
+        display: block;
+    }
+    .mobile {
+        display: none;
+    }
+}

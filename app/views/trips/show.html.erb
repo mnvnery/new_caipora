@@ -1,0 +1,38 @@
+<img class="header-img desktop" src="/assets/header-green.svg" alt="CAIPORA">
+<img class="header-img mobile" src="/assets/mobile-header-green.svg" alt="CAIPORA">
+<main>
+<h1 class='text-center my-4'><%= l(@trip.start_date, format: "%d %B", locale: :pt) %> → <%= l(@trip.end_date, format: "%d %B", locale: :pt) %></h1>
+<% if @trip.location == 'Guatemala' %>
+    <div class="trip-map"><%= image_tag 'mapa-guatemala.svg', class: "map-img guatemala" %></div>
+    <h4 class="trip-route text-center mt-4 mb-5">ANTIGUA — SANTA MARÍA DE JESÚS — PACAYA — ATITLÁN — <br> FUENTES GEORGINA — PANAJACHEL — NEBAJ — SEMUC CHAMPEY <br>— PARQUE NACIONAL TIKAL — FLORES — COPAN RUINAS</h4>
+<% elsif @trip.location == 'Amazónia' %>
+    <div class="trip-map"><%= image_tag 'mapa_amazonia.svg', class: "map-img" %></div>
+    <h4 class="trip-route text-center mt-4 mb-5">MANAUS — TUMBIRA — IGAPÓ — PRAIA ALTA — <br> PRESIDENTE FIGUEIREDO — LAGOA AZUL — SALTO DO IPÊ</h4>
+<% end %>
+
+<div class="trip-info text-center">
+    <div> 
+        <h4>DATAS DISPONÍVEIS</h4>
+        <h4>–</h4>
+        <h4>POR MARCAÇÃO</h4>
+        <h4>(TODO O ANO)</h4>
+    </div>
+    <div class="border-right border-dark"></div>
+    <div>
+        <h4>PREÇO</h4>
+        <h4>–</h4>
+        <h4><%= humanized_money_with_symbol(@trip.price) %> (VOO NÃO INCLUÍDO)<h4>
+        <h5 class="mt-2">MÍNIMO DE 4 / MÁXIMO DE 14 PESSOAS</h5>
+    </div>
+    <div class="border-right border-dark"></div>
+    <div class='reserve-btn'>
+        <%= image_tag 'montanha.svg', class: "reserve-img" %>       
+        <h4 class="reserve-text"><%= link_to 'RESERVAR', new_trip_sign_up_path(@trip) %></h4>
+    </div>
+</div>
+<div class="d-flex">
+    <div class="program dark-green border-right border-dark"></div>
+    <div class="description"><%= @trip.description.html_safe %></div>
+</div>
+</main>
+

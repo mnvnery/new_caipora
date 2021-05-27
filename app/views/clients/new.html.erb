@@ -1,0 +1,17 @@
+<div class="text-center">
+<%= simple_form_for [@user] do |f| %>
+
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.input :NIF %>
+    <%= f.input :address %>
+    <%= f.input :post_code %>
+    <%= f.input :city %>
+    <%= f.input :country %>
+
+    <%= f.submit "Validate", class: "btn btn-primary"%>
+
+<% end %>
+
+</div>

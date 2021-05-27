@@ -1,8 +1,27 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@font-face {
+    font-family: "HKGrotesk";
+    src: url("HKGrotesk-Medium.otf") format("opentype");
+}
+@font-face {
+    font-family: "HKGrotesk-Bold";
+    src: url("HKGrotesk-Bold.otf") format("opentype");
+}
+@font-face {
+    font-family: "Pangram-Bold";
+    src: url("Pangram-Bold.otf") format("opentype");
+}
+@font-face {
+    font-family: "Pangram-Medium";
+    src: url("Pangram-Medium.otf") format("opentype");
+}
+@font-face {
+    font-family: "Pangram-ExtraBold";
+    src: url("Pangram-ExtraBold.otf") format("opentype");
+}   
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
+$body-font: "HKGrotesk", sans-serif;
 $headers-font: "Nunito", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
@@ -14,3 +33,4 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+

@@ -1,0 +1,42 @@
+<img class="header-img desktop" src="/assets/header-blue.svg" alt="CAIPORA">
+<img class="header-img mobile" src="/assets/mobile-header-blue.svg" alt="CAIPORA">
+<p id="notice"><%= @sign_up.errors.messages if @sign_up.errors.any? %></p>
+<main>
+<%= simple_form_for [@trip, @sign_up] do |f| %>
+    <div>
+    <%= label_tag(:name, "name") %>
+    <%= text_field_tag :name %>
+    </div>
+    <div>
+    <%= label_tag(:email, "email") %>
+    <%= text_field_tag :email %>
+    </div>
+    <div>
+    <%= label_tag(:phone, "phone") %>
+    <%= text_field_tag :phone %>
+    </div>
+    <div>
+    <%= label_tag(:fiscal_number, "NIF") %>
+    <%= text_field_tag :fiscal_number %>
+    </div>
+    <div>
+    <%= label_tag(:address, "address") %>
+    <%= text_field_tag :address %>
+    </div>
+    <div>
+    <%= label_tag(:post_code, "post_code") %>
+    <%= text_field_tag :post_code %>
+    </div>
+    <div>
+    <%= label_tag(:city, "city") %>
+    <%= text_field_tag :city %>
+    </div>
+    <div>   
+    <%= label_tag(:password, "password") %>
+    <%= text_field_tag :password %>
+    <div>
+    <%= submit_tag("Create user, client and booking") %>
+    </div>
+
+<% end %>
+</main>
