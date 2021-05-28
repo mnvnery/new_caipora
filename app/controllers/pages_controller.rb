@@ -5,9 +5,11 @@ class PagesController < ApplicationController
   end
 
   def about
+    @trips = Trip.all
   end
 
   def contact
   end
+  
   
 end

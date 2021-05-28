@@ -31,8 +31,13 @@
     </div>
 </div>
 <div class="d-flex">
-    <div class="program dark-green border-right border-dark"></div>
-    <div class="description"><%= @trip.description.html_safe %></div>
+    <div class="program dark-green border-right border-dark">
+        <% @trip.programs.each do |program| %>
+        <p><%= program.day %><p>
+        <p><%= program.description %><p>
+    <% end %>
+    </div>
+    <div class="description"><%= @trip.description %></div>
 </div>
 </main>
 

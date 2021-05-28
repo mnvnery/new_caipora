@@ -1,0 +1,8 @@
+<%= simple_form_for @trip do |f| %>
+    <%= f.input :description, as: :rich_text_area %>
+    <%= f.simple_fields_for :programs do |c| %>
+        <%= c.input :day %>
+        <%= c.input :description %>    
+    <% end %>
+    <%= f.button :submit %>
+<% end %>

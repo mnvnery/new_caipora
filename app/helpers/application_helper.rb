@@ -45,4 +45,6 @@ module ApplicationHelper
     def home?
         return 'home-hide' if request.path == "/"
     end
+
+
 end
