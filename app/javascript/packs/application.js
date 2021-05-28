@@ -30,3 +30,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   sidebarFunction();
 });
+
+require("trix")
+require("@rails/actiontext")
