@@ -24,8 +24,8 @@ amazónia = Trip.create(location: "Amazónia", start_date: Date.new(2021,04,22),
     <br><br>Nota importante: apesar da grande biodiversidade que ali habita, os animais no seu estado natural refugiam-se dos humanos. Desta forma, e porque não queremos fazer parte da exploração turística de animais que se pretendem selvagens, não é garantido
     que vislumbraremos muita diversidade desta fauna.")
 
-Program.create(trip_id: guatemala.index, day: "Dia 1", summary:"", description: "Chegada Aeroporto")
-Program.create(trip_id: guatemala.index, day: "Dia 2", summary:"", description: "Visita Antigua")
+Program.create(trip_id: 12, day: "Dia 1", summary:"", description: "Chegada Aeroporto")
+Program.create(trip_id: 12, day: "Dia 2", summary:"", description: "Visita Antigua")
 Program.create(trip_id: guatemala.index, day: "Dia 3", summary:"", description: "Visita povoações: <br> Santa María de Jesús - Cerimonia Maya <br> San Juan del Obispo Visita Fábrica de Cerámica, Chocolate Artesanal, Vinera Artesanal")
 Program.create(trip_id: guatemala.index, day: "Dia 4", summary:"", description: "Visita do vulcão de Pacaya")
 Program.create(trip_id: guatemala.index, day: "Dia 5", summary:"", description: "Saída de Antigua para Lago de Atitlan – Tour do Lago en Panajachel")

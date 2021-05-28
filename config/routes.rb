@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
 
-  resources :trips, only: [:index, :show] do
+  resources :trips do
     resources :sign_ups, only: [:new, :create]
+    resources :trip_edits
     resources :bookings, only: [:index, :show, :new, :create]
+    resources :faqs
+    resources :programs
   end
 
   resources :clients, only: [:index, :show, :new, :create] do
