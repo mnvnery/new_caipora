@@ -7,7 +7,7 @@ module ApplicationHelper
     def background?
         if request.path == "/about"
             return "pink"
-        elsif request.path == "/contact" || request.path == "/trips/12/sign_ups/new" || request.path == "/trips/13/sign_ups/new"
+        elsif request.path == "/contact" || request.path == "/trips/12/sign_ups/new" || request.path == "/trips/13/sign_ups/new" || request.path == "/trips/13/sign_ups/" || request.path == "/trips/12/sign_ups/"
             return "blue"
         elsif request.path == "/trips/13" || request.path == "/trips/12"
             return "green"
@@ -19,7 +19,7 @@ module ApplicationHelper
     def body_background?
         if request.path == "/about"
             return "light-pink"
-        elsif request.path == "/contact" || request.path == "/trips/12/sign_ups/new" || request.path == "/trips/13/sign_ups/new"
+        elsif request.path == "/contact" || request.path == "/trips/12/sign_ups/new" || request.path == "/trips/13/sign_ups/new" || request.path == "/trips/13/sign_ups/" || request.path == "/trips/12/sign_ups/"
             return "light-blue"
         elsif request.path == "/trips/13" || request.path == "/trips/12"
             return "light-green"
