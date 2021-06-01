@@ -1,3 +1,17 @@
 <img class="header-img desktop" src="/assets/header-blue.svg" alt="CAIPORA">
 <img class="header-img mobile" src="/assets/mobile-header-blue.svg" alt="CAIPORA">
 
+<main>
+<div class="contact"><%= @page.content %></div>
+
+<img class='contact-img' src="/assets/contact.svg">
+</main>
+
+<script>
+window.onload = function(){
+    var anchors = document.getElementsByTagName('a');
+    for (var i=0; i<anchors.length; i++){
+        anchors[i].setAttribute('target', '_blank');
+    }
+}
+</script>

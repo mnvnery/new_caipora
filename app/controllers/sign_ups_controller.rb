@@ -10,7 +10,7 @@ class SignUpsController < ApplicationController
         @sign_up = SignUp.new(sign_up_params)
         @sign_up.trip_id = @trip.id
         if @sign_up.save
-            redirect_to root_url, notice: 'Sign Up was a Success'
+            redirect_to new_trip_booking_path(@trip), notice: 'Sign Up was a Success'
         else
             render :new
         end

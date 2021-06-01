@@ -1,8 +1,8 @@
 class Trip < ApplicationRecord
-    has_many :bookings
+    has_many :bookings, dependent: :destroy
     has_many :sign_ups
-    has_many :programs
-    has_many :faqs
+    has_many :programs, dependent: :destroy
+    has_many :faqs, dependent: :destroy
     has_rich_text :description
 
     monetize :price_cents

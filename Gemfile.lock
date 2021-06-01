@@ -269,6 +269,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stripe (5.33.0)
     swd (1.2.0)
       activesupport (>= 3)
       attr_required (>= 0.0.5)
@@ -340,6 +341,7 @@ DEPENDENCIES
   selenium-webdriver
   simple_form
   spring
+  stripe
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

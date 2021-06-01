@@ -5,13 +5,13 @@
         </span>
     </button>
     <div class="menu-links">
-        <a class="sidebar-link" href="/"><p>APRESENTAÇÃO</p></a>
+        <a class="sidebar-link <%= current_class?('/presentation') %>" href="/presentation"><p>APRESENTAÇÃO</p></a>
         <a class="sidebar-link <%= current_class?('/about') %>" href="/about"><p>SOBRE NÓS</p></a>
         <a class="sidebar-link" href="#"><p>VIAGENS</p></a>
-        <a class="sidebar-forward-link <%= current_class?('/trips/3') %>" href="<%= trip_path(13) %>"><p>AMAZÓNIA</p></a>
-        <a class="sidebar-forward-link <%= current_class?('/trips/1') %>" href="<%= trip_path(12) %>"><p>GUATEMALA</p></a>
-        <a class="sidebar-link" href="#"><p>RESERVAS</p></a>
+        <a class="sidebar-forward-link <%= current_class?('/trips/1') %>" href="<%= trip_path(1) %>"><p>AMAZÓNIA</p></a>
+        <a class="sidebar-forward-link <%= current_class?('/trips/2') %>" href="<%= trip_path(2) %>"><p>GUATEMALA</p></a>
         <a class="sidebar-link <%= current_class?('/contact') %>" href="/contact"><p>CONTACTO</p></a>
+        <%= link_to "LOG OUT", destroy_user_session_path, :method => :delete %>
     </div> 
     <p class="page-title mobile"><%= page_name? %></p>
     <div class="socials">

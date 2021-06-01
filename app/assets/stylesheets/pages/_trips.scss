@@ -53,3 +53,59 @@
     transform: translate(-50%, -60%);
 }
 
+.program {
+    background-color: $dark-green;
+    width: 40vw;
+    padding: 5vh 3vw;
+    height: 190vh;
+    overflow: scroll;
+}
+.program-day{
+    font-size: 1vw;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 1vw;
+    margin-bottom: 0.5vh;
+}
+.program-description{
+    font-size: 1.1vw;
+    margin-bottom: 2.5vh;
+}
+.description {
+    width: 70vw;
+    padding: 6vh 4vw;
+    font-size: 1.5vw;
+    line-height: 4.5vh;
+}
+
+.context {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    padding: 0 2vw;
+}
+
+.to-measure {
+    height: 30vh;
+    background-color: $dark-green;
+    margin: auto;
+    padding: 6vh 5vw;
+}
+
+.faq-question {
+    font-size: 1.6vw;
+    padding: 2vh 2vw;
+}
+
+.faq-answer {
+    padding: 2vh 2vw;
+    display: none;
+}
+
+.arrow-faq {
+    float: right;
+}
+
+.ri-arrow-up-s-line {
+    display: none;
+}
