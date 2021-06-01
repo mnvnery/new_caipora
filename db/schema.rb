@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_28_103556) do
+ActiveRecord::Schema.define(version: 2021_06_01_123559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,12 +55,14 @@ ActiveRecord::Schema.define(version: 2021_05_28_103556) do
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "trip_id", null: false
-    t.integer "total_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "client_id", null: false
-    t.index ["client_id"], name: "index_bookings_on_client_id"
+    t.string "checkout_session_id"
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.bigint "user_id", null: false
     t.index ["trip_id"], name: "index_bookings_on_trip_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -86,6 +88,13 @@ ActiveRecord::Schema.define(version: 2021_05_28_103556) do
     t.index ["trip_id"], name: "index_faqs_on_trip_id"
   end
 
+  create_table "pages", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.text "content"
+  end
+
   create_table "programs", force: :cascade do |t|
     t.bigint "trip_id", null: false
     t.string "day"
@@ -97,14 +106,13 @@ ActiveRecord::Schema.define(version: 2021_05_28_103556) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.string "location"
+    t.string "name"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "description"
     t.integer "price_cents", default: 0, null: false
-    t.string "contenful_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -122,8 +130,8 @@ ActiveRecord::Schema.define(version: 2021_05_28_103556) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookings", "clients"
   add_foreign_key "bookings", "trips"
+  add_foreign_key "bookings", "users"
   add_foreign_key "clients", "users"
   add_foreign_key "faqs", "trips"
   add_foreign_key "programs", "trips"

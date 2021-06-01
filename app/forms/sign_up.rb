@@ -3,6 +3,7 @@ class SignUp
     attr_accessor :name, :email, :phone, :fiscal_number, :address, :post_code, :city, :password, :trip_id
 
     def save
+        @trip = Trip.where(id: trip_id).first
         ActiveRecord::Base.transaction do
         user = User.create(email: email, password: password)
         add_errors(user.errors) if user.invalid?
@@ -10,9 +11,6 @@ class SignUp
         client = Client.create(name: name, email: email, phone: phone, fiscal_number: fiscal_number, address: address, post_code: post_code, city: city, user_id: user.id)
         add_errors(client.errors) if client.invalid?
         client.save!
-        booking = Booking.create(trip_id: trip_id, client_id: client.id, total_price: 0)
-        add_errors(booking.errors) if booking.invalid?
-        booking.save!
         end
     rescue ActiveRecord::RecordInvalid => exception
         return false

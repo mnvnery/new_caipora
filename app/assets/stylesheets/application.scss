@@ -5,7 +5,14 @@ body {
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
 }
+
+html, body {
+    height: 100%;
+}
+
 a {
     text-decoration: none;
     color: black !important;
@@ -19,6 +26,7 @@ main {
     margin-left: 5vw;
     margin-right: 5vw;
     margin-top: 7vw;
+    flex: 1 0 auto;
 }
 //simple_form input for rich_text_area hight
 trix-editor.form-control {

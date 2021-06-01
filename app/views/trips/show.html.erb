@@ -2,10 +2,10 @@
 <img class="header-img mobile" src="/assets/mobile-header-green.svg" alt="CAIPORA">
 <main>
 <h1 class='text-center my-4'><%= l(@trip.start_date, format: "%d %B", locale: :pt) %> → <%= l(@trip.end_date, format: "%d %B", locale: :pt) %></h1>
-<% if @trip.location == 'Guatemala' %>
+<% if @trip.name == 'Guatemala' %>
     <div class="trip-map"><%= image_tag 'mapa-guatemala.svg', class: "map-img guatemala" %></div>
     <h4 class="trip-route text-center mt-4 mb-5">ANTIGUA — SANTA MARÍA DE JESÚS — PACAYA — ATITLÁN — <br> FUENTES GEORGINA — PANAJACHEL — NEBAJ — SEMUC CHAMPEY <br>— PARQUE NACIONAL TIKAL — FLORES — COPAN RUINAS</h4>
-<% elsif @trip.location == 'Amazónia' %>
+<% elsif @trip.name == 'Amazónia' %>
     <div class="trip-map"><%= image_tag 'mapa_amazonia.svg', class: "map-img" %></div>
     <h4 class="trip-route text-center mt-4 mb-5">MANAUS — TUMBIRA — IGAPÓ — PRAIA ALTA — <br> PRESIDENTE FIGUEIREDO — LAGOA AZUL — SALTO DO IPÊ</h4>
 <% end %>
@@ -27,17 +27,46 @@
     <div class="border-right border-dark"></div>
     <div class='reserve-btn'>
         <%= image_tag 'montanha.svg', class: "reserve-img" %>       
-        <h4 class="reserve-text"><%= link_to 'RESERVAR', new_trip_sign_up_path(@trip) %></h4>
+        <h4 class="reserve-text">
+        <%= form_tag bookings_path do %>
+        <%= hidden_field_tag 'trip_id', @trip.id %>
+        <%= submit_tag 'RESERVAR' %>
+        <% end %> 
+        </h4>
     </div>
 </div>
 <div class="d-flex">
-    <div class="program dark-green border-right border-dark">
+    <div class="program dark-green border-right border-bottom border-dark">
+        <h4 class="mb-3">PROGRAMA DIA A DIA</h4>
         <% @trip.programs.each do |program| %>
-        <p><%= program.day %><p>
-        <p><%= program.description %><p>
-    <% end %>
+            <div class="program-day"><%= program.day %></div>
+            <div class="program-description"><%= program.description.html_safe %></div>
+        <% end %>
     </div>
-    <div class="description"><%= @trip.description %></div>
+    <div class="description border-bottom border-dark"><%= @trip.description %></div>
+</div>
+<div class="d-flex align-items-center text-center">
+    <div class="context border-right border-bottom border-dark"><%= image_tag 'context.svg' %></div>
+    <div class="to-measure border-bottom border-dark">
+    <h4>VIAGEM Á MEDIDA</h4>
+    <p>Se gostaria de realizar esta viagem com a companhia à sua escolha, teremos gosto em organizá-la segundo as vossas necessidades, datas e duração, e o orçamento que mais vos convém.</p>
+    </div>
+</div>
+<div class="d-flex">
+    <div class="faq">
+        <% @trip.faqs.each do |faq| %>
+            <div class="faq-question border-bottom border-dark"><i><%= faq.question %></i><span class="arrow-faq"><i class="ri-arrow-down-s-line"></i><i class="ri-arrow-up-s-line"></i></span></div>
+            <div class="faq-answer border-bottom border-dark"><%= faq.answer.html_safe %></div>
+        <% end %>
+    </div>
+    <div class="border-left border-dark">
+    <h4>INCLUI/EXCLUI</h4>
+    <p>MANAUS</p>
+    <i>INCLUÍDO</i>
+    <p>Transporte, hospedagem com pequeno almoço, dois almoços (dias 2 e 3) e passeios.</p>
+    <i>NÃO INCLUÍDO</i>
+    <p>Jantares dos dias 1, 2 e 3, nem o almoço do dia 1</p>
+    </div>
 </div>
 </main>
 

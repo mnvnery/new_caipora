@@ -1,20 +1,23 @@
 Rails.application.routes.draw do
+  mount ForestLiana::Engine => '/forest'
   devise_for :users
   root to: 'pages#home'
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
-
+  get 'presentation', to: 'pages#presentation'
+  resources :pages
   resources :trips do
     resources :sign_ups, only: [:new, :create]
     resources :trip_edits
-    resources :bookings, only: [:index, :show, :new, :create]
     resources :faqs
     resources :programs
   end
 
-  resources :clients, only: [:index, :show, :new, :create] do
-    resources :bookings, only: [:index, :show, :new, :create]
+  resources :bookings, only: [:show, :create] do
+    resources :payments, only: :new
   end
+
+  resources :clients, only: [:index, :show, :new, :create] 
   resources :pages, only: [:index, :show, :new, :create]
 
   

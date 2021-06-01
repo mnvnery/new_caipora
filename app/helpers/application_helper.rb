@@ -7,9 +7,9 @@ module ApplicationHelper
     def background?
         if request.path == "/about"
             return "pink"
-        elsif request.path == "/contact" || request.path == "/trips/12/sign_ups/new" || request.path == "/trips/13/sign_ups/new"
+        elsif request.path == "/contact" || request.path == "/presentation" || request.path == "/trips/2/sign_ups/new" || request.path == "/trips/1/sign_ups/new" || request.path == "/trips/1/sign_ups/" || request.path == "/trips/2/sign_ups/"
             return "blue"
-        elsif request.path == "/trips/13" || request.path == "/trips/12"
+        elsif request.path == "/trips/1" || request.path == "/trips/2"
             return "green"
         else
             return ""
@@ -19,9 +19,9 @@ module ApplicationHelper
     def body_background?
         if request.path == "/about"
             return "light-pink"
-        elsif request.path == "/contact" || request.path == "/trips/12/sign_ups/new" || request.path == "/trips/13/sign_ups/new"
+        elsif request.path == "/contact" || request.path == "/presentation" || request.path == "/trips/2/sign_ups/new" || request.path == "/trips/1/sign_ups/new" || request.path == "/trips/1/sign_ups/" || request.path == "/trips/2/sign_ups/" 
             return "light-blue"
-        elsif request.path == "/trips/13" || request.path == "/trips/12"
+        elsif request.path == "/trips/1" || request.path == "/trips/2"
             return "light-green"
         else
             return "ocre"
@@ -31,11 +31,13 @@ module ApplicationHelper
     def page_name?
             if request.path == "/about"
                 return "SOBRE NÓS"
+            elsif request.path == "/presentation"
+                return "APRESENTAÇÃO"
             elsif request.path == "/contact"
                 return "CONTACTOS"
-            elsif request.path == "/trips/13"
+            elsif request.path == "/trips/1"
                 return "AMAZÓNIA"
-            elsif request.path == "/trips/12"
+            elsif request.path == "/trips/2"
                 return "GUATEMALA"
             else 
                 return ""

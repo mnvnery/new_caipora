@@ -16,15 +16,6 @@ class ClientsController < ApplicationController
     end 
 
     def create
-        @trip = Trip.find(params[:trip_id])
-        @booking = Booking.new()
-        @booking.trip = @trip
-        @booking.client = @client
-        @booking.total_price = @trip.price
-        if @client.save!
-            @booking.save!
-            redirect_to trip_path(@trip)
-        end
 
     end
 
