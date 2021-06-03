@@ -14,3 +14,14 @@
     height: 100%;
 }
 
+@media only screen and (max-width: 600px) {
+    .presentation-flex {
+        flex-direction: column;
+    }
+    .presentation {
+        margin-right: 0;
+        font-size: 4vw;
+        line-height: 2.5vh;
+        margin-bottom: 3vh;
+    }
+}

@@ -7,7 +7,7 @@ module ApplicationHelper
     def background?
         if request.path == "/about"
             return "pink"
-        elsif request.path == "/contact" || request.path == "/presentation" || request.path == "/trips/2/sign_ups/new" || request.path == "/trips/1/sign_ups/new" || request.path == "/trips/1/sign_ups/" || request.path == "/trips/2/sign_ups/"
+        elsif request.path == "/contact" || request.path == "/presentation" || request.path == "/trips/2/sign_ups/new" || request.path == "/trips/1/sign_ups/new" || request.path == "/trips/1/sign_ups/" || request.path == "/trips/2/sign_ups/" || request.path == "/privacy" || request.path == "/terms"
             return "blue"
         elsif request.path == "/trips/1" || request.path == "/trips/2"
             return "green"
@@ -19,7 +19,7 @@ module ApplicationHelper
     def body_background?
         if request.path == "/about"
             return "light-pink"
-        elsif request.path == "/contact" || request.path == "/presentation" || request.path == "/trips/2/sign_ups/new" || request.path == "/trips/1/sign_ups/new" || request.path == "/trips/1/sign_ups/" || request.path == "/trips/2/sign_ups/" 
+        elsif request.path == "/contact" || request.path == "/presentation" || request.path == "/trips/2/sign_ups/new" || request.path == "/trips/1/sign_ups/new" || request.path == "/trips/1/sign_ups/" || request.path == "/trips/2/sign_ups/"|| request.path == "/privacy" || request.path == "/terms"
             return "light-blue"
         elsif request.path == "/trips/1" || request.path == "/trips/2"
             return "light-green"
@@ -47,6 +47,4 @@ module ApplicationHelper
     def home?
         return 'home-hide' if request.path == "/"
     end
-
-
 end

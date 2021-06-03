@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_123559) do
+ActiveRecord::Schema.define(version: 2021_06_03_134029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,16 @@ ActiveRecord::Schema.define(version: 2021_06_01_123559) do
     t.index ["trip_id"], name: "index_faqs_on_trip_id"
   end
 
+  create_table "includes", force: :cascade do |t|
+    t.bigint "trip_id", null: false
+    t.string "location"
+    t.string "included"
+    t.string "nonincluded"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["trip_id"], name: "index_includes_on_trip_id"
+  end
+
   create_table "pages", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -124,6 +134,8 @@ ActiveRecord::Schema.define(version: 2021_06_01_123559) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
+    t.string "name"
+    t.string "mobile"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -134,5 +146,6 @@ ActiveRecord::Schema.define(version: 2021_06_01_123559) do
   add_foreign_key "bookings", "users"
   add_foreign_key "clients", "users"
   add_foreign_key "faqs", "trips"
+  add_foreign_key "includes", "trips"
   add_foreign_key "programs", "trips"
 end

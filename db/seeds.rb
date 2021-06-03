@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Page.destroy_all if Rails.env.development?
+ActiveRecord::Base.connection.reset_pk_sequence!("pages") 
+
 Trip.destroy_all if Rails.env.development?
 ActiveRecord::Base.connection.reset_pk_sequence!("trips") 
 Program.destroy_all if Rails.env.development?
@@ -29,7 +32,7 @@ Program.create(trip_id: guatemala.id, day: "Dia 1", summary:"Chegada Aeroporto",
 Program.create(trip_id: guatemala.id, day: "Dia 2", summary:"Visita Antigua", description: "<i>MANHÃ</i> – Centro histórico<br><i>TARDE</i> – visita aos principais pontos de interesse<br><i>NOITE</i> - Jantar livre em Antigua<br>Pernoite em hotel em Antigua")
 Program.create(trip_id: guatemala.id, day: "Dia 3", summary:"Visita povoações", description: "<i>MANHÃ</i>: Santa María de Jesús<br><i>TARDE</i>: almoço em San Juan del Obispo, Visita Fábrica de Cerámica, Chocolate Artesanal, Vinera Artesanal<br><i>NOITE</i> - Jantar livre em Antigua<br>Pernoite em hotel em Antigua")
 Program.create(trip_id: guatemala.id, day: "Dia 4", summary:"Visita do vulcão de Pacaya", description: "<i>MANHÃ</i> e <i>TARDE</i> : Subida ao topo do vulcão Pacaya*<br>*Actividade com esforço fisico considerável – O guia consultará e informará detalhadamente o percurso e haverá uma alternativa de percurso, caso não haja total concordancia e conforto nesta actividade<br><i>NOITE</i> - Jantar livre em Antigua<br>Pernoite em hotel em Antigua")
-Program.create(trip_id: guatemala.id, day: "Dia 5", summary:"Saída de Antigua para Lago de Atitlan", description: "<i>MANHÃ</i>: saída de Antigua e chegada ao lago Atitlan, tour no lago em Panajachel<br><i>TARDE</i>: tour pela povoação<br><i>NOITE</i>: jantar livre<br>Pernoite em hotel em San Marcos de la Laguna")
+Program.create(trip_id: guatemala.id, day: "Dia 5", summary:"Saída de Antigua", description: "<i>MANHÃ</i>: saída de Antigua e chegada ao lago Atitlan, tour no lago em Panajachel<br><i>TARDE</i>: tour pela povoação<br><i>NOITE</i>: jantar livre<br>Pernoite em hotel em San Marcos de la Laguna")
 Program.create(trip_id: guatemala.id, day: "Dia 6", summary:"Lago de Atitlan – Quetzaltenango", description: "<i>MANHÃ</i> e <i>TARDE</i>: Aguas Termais nas Fuentes Georgina, almoço em Quetzaltenango<br><i>NOITE</i> jantar livre<br>Pernoite em San Marcos de la Laguna ")
 Program.create(trip_id: guatemala.id, day: "Dia 7", summary:"Panajachel- Nebaj", description:"<i>MANHÃ</i> e <i>TARDE</i>: Viagem para Nebaj com paragem em Sacapulas<br><i>NOITE</i>: jantar livre<br>Pernoite em Nebaj" )
 Program.create(trip_id: guatemala.id, day: "Dia 8", summary:"Passeio Nebaj - San Juan Accul", description:"<i>MANHÃ</i>: Caminhada Nebaj- San Juan Accul.<br><i>TARDE</i>: Visita à quinta Mil amores, para degustar o famoso queijo Chancol.<br>Regreso de carro de San Juan Accul a Nebaj.<br><i>NOITE</i>: Jantar livre<br>Pernoite em Nebaj" )
@@ -75,3 +78,126 @@ Faq.create(trip_id: guatemala.id, question:"Como é a alimentação durante a vi
 Faq.create(trip_id: guatemala.id, question:"Como são os transportes?", answer:"Devido aos muitos kms de estrada que percorremos por estradas centro-americanas, durante grande parte da viagem usamos uma carrinha de 14 lugares, confortável e com espaço suficiente para o grupo e bagagem. Ao volante, contamos com o Ernesto. Uma figura carismática que tem todo o prazer em partilhar do seu vasto conhecimento do território e acompanhará desde o aeroporto à chegada, até à partida. Em momentos específicos, usaremos transportes locais, como barcos, em sítios que o acesso só isso permite.")
 Faq.create(trip_id: guatemala.id, question:"Como é o clima durante a viagem?", answer:"A América Central caracteriza-se por temperaturas amenas e agradáveis. Contudo, exploramos um território bastante vasto e diverso, Conta, com alguma variação térmica: mínimas a rondar os 10ºC e máximas acima dos 30ºC. A maioria dos dias serão solarengos e de gloriosos céus azuis, mas estamos numa região tropical, portanto prepara-te para possíveis aguaceiros fortes.")
 Faq.create(trip_id: guatemala.id, question:"Esta viagem exige cuidados de saúde especiais?", answer:"Recomenda-se a <a href='https://www.consultadoviajante.com'>Consulta do Viajante em Telemedicina</a>. A consulta deverá ser feita com um mínimo de um mês da data de partida para a viagem.")
+
+Include.create(trip_id: amazónia.id, location: "MANAUS", included:"Transporte, hospedagem com pequeno almoço, dois almoços (dias 2 e 3) e passeios.", nonincluded:"Jantares dos dias 1, 2 e 3, nem o almoço do dia 1.")
+Include.create(trip_id: amazónia.id, location: "COMUNIDADES", included:"Transporte, hospedagem, toda a alimentação1 e passeios.", nonincluded:"Bebidas alcoólicas.")
+Include.create(trip_id: amazónia.id, location: "PRESIDENTE FIGUEIREDO", included:"Transporte, hospedagem, alimentação e passeios.", nonincluded:"Jantares.")
+
+Include.create(trip_id: guatemala.id, location: "", included:"Guia, Transporte, hospedagem e pequeno-almoço (excepto dia 11 e 12).", nonincluded:"Entrada nos parques turisticos e refeições.")
+
+Page.create(name: "presentation", content:"Propomos que abandonem, temporariamente, o vosso lugar de rotina e conforto, e explorem realidades que só quando presenciadas são realmente entendidas. Acrescentam Mundo. Deixem-se levar pela curiosidade, como só viajar permite.
+
+Estes lugares, foram das viagens que mais impacto tiveram em nós. São destinos que nos dizem muito e que queremos partilhar com todos os que gostam de viajar e descobrir.
+
+Temos viagens em grupo, mas também temos “viagens à medida” onde podem agendar connosco definindo quando e com que companhia: família, crianças, amigos, tragam quem quiserem. Mas venham. As nossas viagens são para todas as idades.")
+Page.create(name: "about", content:"A Sara Biscaia e o Zé Castro Caldas, ambos gostam de viajar e preparam em Portugal esta possibilidade de levar outros viajantes a dois sitios com os quais criaram uma rede de contactos e acima de tudo Amizades, de forma a visitar cada um desses sitios a partir do acompanhamento de quem lá habita, são eles quem nos guiam, mostram e partilham as suas histórias. Porque não há quem conheça um determinado contexto como quem nele vive.
+    Os locais que visitamos serão sempre dentro de um registo em turismo de pequena escala, em que o impacto de quem os visita é essencial na dinamização directa na economia local ao dar prioridade e envolver pequenos negócios e as comunidades das zonas onde vamos estar.")
+Page.create(name: "contact", content:"FACEBOOK
+INSTAGRAM
+CAIPORA@CAIPORA.COM
++351 91 876 654 432
+LISBOA
+PORTUGAL")
+Page.create(name: "privacy", content:"Quando acede às páginas do site da CAIPORA (posteriormente também terá o nome oficial da empresa), está a aceitar os termos aqui expostos. 
+
+    Todos os direitos de autor, copyright, marca registada e outros aplicáveis ou utilizados no presente site são pertença de CAIPORA e estão protegidos por direitos de autor. Todos os direitos que não sejam expressamente concedidos pelo presente conteúdo são direitos reservados. 
+    
+    O presente site é para uso pessoal e não comercial do utilizador. É proibida a cópia, alteração, distribuição, transmissão, exibição, reprodução, publicação, transferência ou venda de quaisquer informações, produtos ou serviços obtidos através do presente site. 
+    
+    Em caso algum a CAIPORA poderá ser responsabilizada, direta ou indiretamente, por qualquer dano resultante ou de qualquer forma relacionado com o uso do presente site. 
+    
+    A CAIPORA não garante que as suas páginas do site não serão interrompidas ou que não terão erros. 
+    
+    A CAIPORA reserva-se ao direito de inserir, alterar e remover, sem aviso prévio e seja qual for a causa, qualquer informação presente no site. O utilizador é responsável por rever o conteúdo sempre que consultar ou reservar viagens através do mesmo. O uso continuado do site posteriormente a quaisquer alterações introduzidas pela CAIPORA será considerado como aceitação tácita das mesmas. 
+    
+    Para facilitar a sua acessibilidade, a CAIPORA pode incluir links para sites na internet que sejam detidos ou operados por terceiros. Quando utilizar os links para esses sites de terceiros, deverá rever e aceitar as regras desse site antes de o utilizar. Também deverá aceitar que a CAIPORA não controla o conteúdo desse site e não pode assumir qualquer responsabilidade pelos materiais criados ou publicados por esses sites de terceiros. Para além disso, um link para um site que não seja da a CAIPORA não significa que a CAIPORA apoie o site ou os produtos e serviços aí referenciados. 
+    
+    A recolha de dados de identificação do utilizador poderá ser efetuada via internet (no próprio site), telefone ou outros e serão processados automaticamente, nos termos aprovados pela Comissão Nacional de Proteção de Dados. Toda a recolha de dados operará de acordo com as normais regras de segurança. 
+    
+    Nenhuma entidade externa à CAIPORA tem acesso ou pode consultar estes dados. 
+    
+    O utilizador aceita que a CAIPORA forneça a terceiros informação relativa a hábitos, usos e costumes dos clientes enquanto grupo, não incluindo a identidade ou características de qualquer utilizador em particular. 
+    
+    O utilizador, enquanto cliente inscrito numa viagem, dá expresso consentimento para que toda a informação, incluindo dados pessoais, fornecida em relação à sua viagem possa ser transmitida a autoridades governamentais para efeitos de controlo de fronteiras e de segurança nas viagens aéreas. 
+    
+    O utilizador, enquanto cliente inscrito numa viagem, dá expresso consentimento para que toda a informação, incluindo dados pessoais, fornecida em relação à sua viagem possa ser transmitida a parceiros locais da CAIPORA de modo a poder realizar o programa de viagem, incluindo gostos, preferências alimentares, informações particulares de saúde ou outros. 
+    
+    Todos os dados recolhidos através do registo no site são inteiramente confidenciais e destinam-se à gestão de clientes e serviços da CAIPORA, bem como a acções de marketing desta mesma empresa, ou para informar os seus clientes de alterações de funcionalidades do site ou do funcionamento da mesma. Assim, todos os dados do seu registo são inteiramente confidenciais e serão utilizados exclusivamente para lhe fazer chegar as nossas novidades, prestar-lhe o melhor serviço e dar-lhe a conhecer viagens que se adaptem aos seus interesses. 
+    ")
+Page.create(name: "terms", content:"    OBJETO E ORGANIZAÇÃO
+    Os presentes Termos e Condições contratuais destinam-se a estabelecer os termos e condições por que se regerá a prestação dos serviços de viagens organizadas pela CAIPORA, sociedade com sede (futura informação), com Capital Social de € x, matriculada na Conservatória do Registo Comercial de X com o número único de matrícula e de pessoa colectiva x, RNAVT No Registo x, entre a Agência e o Cliente.
+    A organização das viagens é da responsabilidade da agência de viagens CAIPORA, referida nestes Termos e Condições dessa forma ou por Agência.
+    Os presentes Termos e Condições de participação são complementados pelo programa de viagem em que o Cliente se inscreve, que constitui as condições particulares de participação na viagem.
+    Ao contratar com a Agência o Cliente reconhece e aceita todos os termos e condições estabelecidos.
+ 
+    RESPONSABILIDADE 
+    A responsabilidade da Agência encontra-se garantida por um seguro de responsabilidade civil na companhia de seguros X e pelo Fundo de Garantia de Viagens e Turismo do Turismo de Portugal, nos termos da legislação em vigor. 
+
+    INSCRIÇÕES E PAGAMENTOS 
+    A inscrição do Cliente e seus acompanhantes só será válida após pagamento total ou de 30% do valor da viagem e o preenchimento do formulário constante do site da Agência. O cliente obriga-se a liquidar o saldo do custo da viagem, incluindo serviços adicionais que solicite, até 60 dias da data da partida. Se a inscrição tiver lugar a 60 dias ou menos da data do início da viagem, o preço total da mesma deverá ser pago no ato da inscrição, ficando esta condicionada à confirmação das reservas para todos os serviços. A CAIPORA reserva-se ao direito de anular qualquer inscrição cujo pagamento não tenha sido efetuado nas condições acima mencionadas. 
+    Ao inscrever-se o Cliente assume vários compromissos perante a CAIPORA:
+    ― De ter tomado conhecimento e aceite os presentes Termos e Condições de participação, bem como o programa de viagem em que o Cliente se inscreve, que constitui as condições particulares de participação na viagem.
+    ― Que se encontra em condições de saúde adequadas à viagem em que se inscreve e aceita a natureza da mesma viagem, nomeadamente os riscos decorrentes da impossibilidade de acesso imediato a assistência médica.
+    ― Que se encontra consciente do tipo de exigências físicas, culturais e psicológicas que a viagem poderá envolver e que poderão levar a situações imprevistas. 
+
+    ALOJAMENTO
+    A CAIPORA tem como alojamento previsto para as suas viagens quartos de duas pessoas. Nalguns casos, quando mencionado no programa da viagem, o alojamento poderá ser em quartos triplos ou de mais pessoas, camaratas, tendas de campismo, camas em cabines de comboio ou outros. 
+    A CAIPORA agrupará em pares (ou em outro número se o alojamento não for de duas pessoas), por sexo, os clientes que se inscreverem individualmente para a mesma viagem. Nalgumas viagens, pelas características de cada alojamento, a separação por género poderá não ser possível. 
+
+    DOCUMENTAÇÃO
+    É da responsabilidade do cliente toda e qualquer documentação pessoal ou familiar (bilhete de identidade, cartão de cidadão, passaporte, documentação militar, autorização para menores, vistos, certificado de vacinas e outros eventualmente exigidos) necessária para a viagem. A Agência declina qualquer responsabilidade pela recusa de concessão de vistos ou a não permissão de entrada ao Cliente em país estrangeiro; nestes casos aplicam-se as condições estabelecidas na cláusula “Desistências”, sendo ainda da conta do cliente todo e qualquer custo que tal situação acarrete. 
+
+    USO DE INFORMAÇÃO DO CLIENTE 
+    O cliente dá expresso consentimento para que toda a informação, incluindo dados pessoais, fornecida em relação à sua viagem possa ser transmitida a autoridades governamentais para efeitos de controlo de fronteiras e de segurança nas viagens aéreas ou outras. 
+    O cliente dá expresso consentimento para que toda a informação, incluindo dados pessoais, fornecida em relação à sua viagem possa ser transmitida a parceiros locais da CAIPORA de modo a poder realizar o programa de viagem, incluindo gostos, preferências alimentares, informações particulares de saúde ou outros. 
+    A CAIPORA efectuará os contactos necessários com o cliente, de forma a garantir o bom funcionamento do serviço. 
+
+    LOCAL DE ENCONTRO E INÍCIO DAS VIAGENS
+    O local de encontro do Cliente, seus acompanhantes em cada viagem com o guia ou líder de viagem e com os restantes participantes está indicado em cada programa de viagem. O lugar específico será comunicado ao Cliente de forma atempada antes do início da viagem. 
+    É da responsabilidade do Cliente adquirir as viagens de avião, ou outro meio de transporte, que o leve, e aos seus acompanhantes, ao local onde se inicia a viagem. 
+    É também da responsabilidade do Cliente estar no ponto de encontro no horário indicado para o início da viagem. 
+
+    LÍNGUA FALADA DURANTE AS VIAGENS
+    As viagens da CAIPORA, salvo raras exceções, realizam-se com grupos apenas de Clientes portugueses ou não-portugueses, falam português e estão integrados culturalmente na sociedade portuguesa. É condição fundamental que o Cliente fale a língua portuguesa para poder participar numa das viagens. 
+
+    MUDANÇAS DE DATAS
+    O Cliente inscrito numa viagem não poderá mudar a sua inscrição para outra viagem ou para a mesma viagem com partida em data diferente sem o expresso consentimento da CAIPORA. Caso seja possível efetuar tal alteração, esta pode estar sujeita a despesas e encargos previstos na rubrica “Desistências”. 
+
+    CESSÃO DA INSCRIÇÃO
+    O Cliente pode ceder a sua inscrição, fazendo-se substituir por outra pessoa que preencha todas as condições requeridas para a viagem, desde que informe a Agência com, pelo menos, 60 dias de antecedência da data de partida e que os diferentes fornecedores dos serviços da viagem aceitem a substituição, sob pena
+de ser considerado que o cliente desistiu da viagem. Se o cliente pretender ceder a sua inscrição a uma pessoa de sexo diferente, poderá estar sujeito ao pagamento do suplemento de alojamento individual da viagem ou a um custo da mesma natureza se esse não estiver previsto para a viagem em que se inscreveu, no caso de não ser possível agrupar o novo participante com outra pessoa do mesmo sexo. 
+    A cessão da inscrição responsabiliza solidariamente cedente e cessionário pelo pagamento do preço da viagem e pelos encargos adicionais originados. 
+
+    ALTERAÇÕES
+    Sempre que existam razões alheias que o justifiquem, a Agência poderá alterar a ordem dos percursos, modificar as horas de partida ou substituir qualquer dos alojamentos ou transportes previstos por outros de categoria e localização similar. 
+
+    MÍNIMO DE PARTICIPANTES E CANCELAMENTO DO PROGRAMA PELA AGÊNCIA
+    O programa de viagem fixará, caso a caso, o número mínimo de participantes. Caso não seja atingido o número mínimo de participantes fixado, a Agência poderá  cancelar a viagem e informará o cliente por escrito do cancelamento até 15 dias antes da data de partida, reembolsando o Cliente de todas as quantias pagas, ficando a Agência exonerada de qualquer responsabilidade pelo cancelamento. 
+
+    DESISTÊNCIAS
+    Se o Cliente ou algum dos seus acompanhantes desistir da viagem até 60 dias antes da data de início do programa da viagem, perderá 30% do valor do programa, que foi entregue pelo cliente à Agência sob a condição de sinal não reembolsável. Caso essa desistência se verifique a 60 ou menos dias da data de início do programa, perderá o valor total do programa da viagem. O Cliente perderá também o valor de serviços adicionais que tenham sido por si pedidos e que tenham encargos não recuperáveis. 
+
+    REEMBOLSOS
+    Depois de iniciada a viagem não é devido qualquer reembolso por serviços não utilizados pelo Cliente. A não prestação de serviços previstos no programa de viagem por causas não imputáveis à Agência e caso não seja possível a substituição por outros equivalentes, confere ao Cliente o direito a ser reembolsado pela diferença entre o preço dos serviços previstos e o dos efetivamente prestados. 
+
+    ALTERAÇÕES DE PREÇOS
+    Os preços constantes da programação estão baseados nos custos dos serviços e taxas de câmbio vigentes à data de programação, pelo que podem estar sujeitos a alterações que resultem das variações no custo dos transportes ou do combustível, de direitos, impostos, taxas e flutuações cambiais. 
+    Sempre que se verifique uma alteração ao preço da viagem, o Cliente será imediatamente informado e convidado a, dentro do prazo que lhe for fixado, aceitar o aumento verificado ou anular a sua inscrição nos mesmos termos e condições que os previstos na rubrica 'Impossibilidade de cumprimento'. 
+
+    IVA
+    Todos os preços indicados no site da Agência refletem já o Imposto de Valor Acrescentado à taxa vigente. 
+
+    SEGUROS
+    O Cliente obriga-se a adquirir um seguro de viagem, podendo este ser ou não adquirido à CAIPORA. O seguro deve estar ajustado ao período de duração da sua viagem, destino e tipo de atividades. Não subscrevendo um seguro de viagem ou adquirindo um seguro de viagem desadequado, o Cliente isenta automaticamente a CAIPORA e todos os seus parceiros prestadores de serviços de toda e qualquer responsabilidade relativa aos riscos e consequentes custos em que o Cliente incorre por não ter realizado a proteção que lhe foi recomendada. 
+    Quando o Cliente adquire um seguro de viagem à CAIPORA, este seguro, no clausulado referente a Cancelamento Antecipado da Viagem e a Interrupção da Viagem, o reembolso que possa vir a ser efetuado pela companhia de seguros aplica- se apenas aos serviços adquiridas à CAIPORA. Ficam excluídos serviços que o Cliente tenha comprado a terceiros. 
+
+    RECLAMAÇÕES
+    Somente poderão ser consideradas reclamações desde que apresentadas por escrito num prazo não superior a 20 dias após o termo da prestação dos serviços. As mesmas só poderão ser aceites desde que tenham sido participadas aos fornecedores dos serviços (hotéis, guias, agentes locais, etc.) durante o decurso da viagem ou estada, exigindo dos mesmos os respetivos documentos comprovativos da ocorrência. 
+    Qualquer conflito emergente do presente contrato de prestação de serviços será dirimido pelo Tribunal Judicial da Comarca de Lisboa, com expressa renúncia a qualquer outro e para todas as questões não reguladas por estes Termos e Condições de Participação, aplicar-se-á a Lei Portuguesa. 
+
+    BAGAGEM
+    A Agência não se responsabiliza, em caso algum, pela bagagem e demais haveres que o Cliente e seus acompanhantes transportem consigo, seja qual for o local ou meio de transporte usado. Recomenda-se ao Cliente a contratação de seguro de bagagem e a sua presença nas operações de carga e descarga da mesma. Em caso de subtracção, deterioração ou destruição da bagagem, o Cliente e seus acompanhantes deverão reclamar de imediato, por escrito, junto da entidade prestadora de serviços e/ou entidade à guarda de quem os mesmos se encontravam depositados, conservando uma cópia da reclamação. A responsabilidade da Agência só poderá
+ser accionada mediante a apresentação de comprovativo de reclamação prevista no parágrafo anterior. 
+
+    NOTA
+    Os presentes Termos e Condições são complementados pelo programa da viagem em que o Cliente e seus acompanhantes se inscrevem, que constitui as condições particulares de participação na viagem. Podem ainda ser complementadas por quaisquer outras condições específicas enviadas ao Cliente no ato da inscrição ou quaisquer outras desde que devidamente acordadas pelas partes. ")

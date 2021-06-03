@@ -23,3 +23,20 @@
     top: 2vh;
     right: 2vw;
 }
+
+@media only screen and (max-width: 600px) {
+    .footer {
+        left: 11vw;
+        right: 0;
+        padding: 1vh 3vw 0 3vw;
+        height: 5vh;
+        font-size: 2vw;
+    }
+    .footer-side {
+        top: 1vh;
+        right: 3vw;
+    }
+    .footer-img {
+        width: 15vw;
+    }
+}

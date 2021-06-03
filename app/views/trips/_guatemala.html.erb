@@ -1,0 +1,47 @@
+<div class="d-flex mobile-flex-column">
+    <div class="d-flex flex-column w-100">
+        <div class="context border-bottom border-dark w-100 text-center"><%= image_tag 'context.svg' %></div>
+        <div class="faq w-100">
+            <% @trip.faqs.each do |faq| %>
+                <div class="faq-question border-bottom border-dark"><i><%= faq.question %></i><i class="arrow-faq ri-arrow-down-s-line"></i></div>
+                <div class="faq-answer border-bottom border-dark"><%= faq.answer.html_safe %></div>
+            <% end %>
+        </div>
+    </div>
+    <div>
+        <div class="includes border-left border-bottom border-dark w-100 h-100 green">
+            <h4 class="mb-3 mobile-title">INCLUI/EXCLUI</h4>
+            <% @trip.includes.each do |i| %>
+            <span class="includes-tag"><i>INCLUÍDO</i></span><br>
+            <div class="includes-description"><%= i.included %></div>
+            <span class="includes-tag"><i>NÃO INCLUÍDO</i></span><br>
+            <div class="includes-description"><%= i.nonincluded %></div><br>
+            <% end %>
+        </div>
+    </div>
+    <div class=".d-none .d-sm-block border-bottom border-dark"></div>
+</div>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+        <%= image_tag 'guatemala-01' , class: "d-block" %>
+        </div>
+        <div class="carousel-item">
+        <%= image_tag 'guatemala-02', class: "d-block" %>
+        </div>
+        <div class="carousel-item">
+        <%= image_tag 'guatemala-03', class: "d-block" %>
+        </div>
+        <div class="carousel-item">
+        <%= image_tag 'guatemala-04', class: "d-block" %>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>

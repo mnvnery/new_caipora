@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NewCaipora</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    </head>
+
+    <body class="light-blue">
+    <img class="header-img desktop" src="/assets/header-blue.svg" alt="CAIPORA">
+    <img class="header-img mobile" src="/assets/mobile-header-blue.svg" alt="CAIPORA">
+        <%= render 'shared/navbar-blue' %>
+        <%= render 'shared/flashes' %>
+
+        <%= yield %>
+        <%= render 'shared/footer-blue' %>
+    </body>
+</html>
