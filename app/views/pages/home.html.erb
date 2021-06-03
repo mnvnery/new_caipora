@@ -38,9 +38,11 @@ canvas.onmousemove = function(e) {
     y = e.clientY - r.top;
 
     ctx.beginPath();
+    ctx.lineCap = ctx.lineJoin = 'round';
     ctx.moveTo(x + radius, y);
     ctx.arc(x, y, radius, 0, 2*Math.PI);
     ctx.fill();
+    
 
 }
 </script>
