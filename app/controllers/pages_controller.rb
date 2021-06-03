@@ -7,17 +7,6 @@ class PagesController < ApplicationController
   def show
     @page = Page.find(params[:id])
   end
-  
-  def new
-    @page = Page.new(page_params)
-  end
-
-  def create
-    @page = Page.new(page_params)
-    if @page.save!
-      redirect_to root_url
-    end
-  end
 
   def edit
     @page = Page.find(params[:id])
@@ -41,11 +30,19 @@ class PagesController < ApplicationController
   end
 
   def contact
-    @page = Page.find_by name:'contacts'
+    @page = Page.find_by name:'contact'
   end
 
   def presentation
     @page = Page.find_by name:'presentation'
+  end
+
+  def privacy
+    @page = Page.find_by name:'privacy'
+  end
+
+  def terms
+    @page = Page.find_by name:'terms'
   end
 
   private

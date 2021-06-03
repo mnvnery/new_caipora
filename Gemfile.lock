@@ -270,6 +270,9 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     stripe (5.33.0)
+    stripe_event (2.3.1)
+      activesupport (>= 3.1)
+      stripe (>= 2.8, < 6)
     swd (1.2.0)
       activesupport (>= 3)
       attr_required (>= 0.0.5)
@@ -342,6 +345,7 @@ DEPENDENCIES
   simple_form
   spring
   stripe
+  stripe_event
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

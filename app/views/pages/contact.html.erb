@@ -2,14 +2,16 @@
 <img class="header-img mobile" src="/assets/mobile-header-blue.svg" alt="CAIPORA">
 
 <main>
+<div class='contact-container'>
 <div class="contact"><%= @page.content %></div>
 
 <img class='contact-img' src="/assets/contact.svg">
 </main>
+</div>
 
 <script>
 window.onload = function(){
-    var anchors = document.getElementsByTagName('a');
+    var anchors = document.querySelectorAll('.contact a');
     for (var i=0; i<anchors.length; i++){
         anchors[i].setAttribute('target', '_blank');
     }

@@ -57,8 +57,12 @@
     background-color: $dark-green;
     width: 40vw;
     padding: 5vh 3vw;
-    height: 190vh;
+    height: 200vh;
     overflow: scroll;
+}
+
+.program-guatemala {
+    height: 120vh;
 }
 .program-day{
     font-size: 1vw;
@@ -68,7 +72,7 @@
     margin-bottom: 0.5vh;
 }
 .program-description{
-    font-size: 1.1vw;
+    font-size: 1.05vw;
     margin-bottom: 2.5vh;
 }
 .description {
@@ -83,13 +87,15 @@
     display: flex;
     align-items: center;
     padding: 0 2vw;
+    width: 65%;
 }
 
 .to-measure {
     height: 30vh;
     background-color: $dark-green;
     margin: auto;
-    padding: 6vh 5vw;
+    padding: 4vh 5vw;
+    width: 35%;
 }
 
 .faq-question {
@@ -106,6 +112,151 @@
     float: right;
 }
 
-.ri-arrow-up-s-line {
+.faq {
+    width: 65%;
+}
+
+.includes {
+    width: 35%;
+    padding: 5vh 3vw;
+}
+
+.includes-location {
+    font-size: 0.95vw;
+}
+.includes-tag {
+    font-size: 0.8vw;
+    font-weight: bold;
+    margin-left: 1vw;
+}
+.includes-description {
+    font-size: 1.05vw;
+}
+
+.carousel-inner img {
+    margin: 10vh auto;
+    width: 90%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hide-guatemala {
     display: none;
+}
+
+.btn-override{
+    background-color: transparent;
+    border: none;
+}
+.btn-override:hover {
+    text-decoration: underline;
+}
+
+.carousel-control-next-icon {
+    background-image: url("/assets/right.svg") ;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("/assets/left.svg") ;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 3vw;
+    height: 3vw;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+    opacity: 1;
+}
+@media only screen and (min-width: 600px) {
+    .program-summary {
+        display: none;
+    }
+    .arrow-program {
+        display: none;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .map-img{
+        width: 75vw;
+    }
+    .trip-info {
+        flex-direction: column;
+    }
+
+    .reserve-img {
+        width: 65vw;
+    }
+    .reserve-btn {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+    }
+    .mobile-flex-invert {
+        flex-direction: column-reverse;
+    }
+    .description {
+        width: 100%;
+        font-size: 4vw;
+        line-height: 3vh;
+        padding: 3vh 4vw;
+    }
+    .program {
+        width: 100%;
+        border-right: none !important;
+        height: 100%;
+    }
+    .program-day{
+        font-size: 3vw;
+        margin-bottom: 0.7vh;
+    }
+    .program-description {
+        font-size: 3.5vw;
+        display: none;
+    }
+    .mobile-title {
+        font-size: 4.2vw;
+    }
+    .to-measure {
+        width: 100%;
+        border: none !important;
+    }
+    .context {
+        height: 100%;
+        width: 100%;
+    }
+    .context img {
+        width: 100%;
+        padding: 3vh 0 ;
+    }
+    .mobile-flex-column {
+        flex-direction: column;
+    }
+    .faq {
+        width: 100%;
+    }
+    .faq-question {
+        font-size: 4vw;
+    }
+    .includes {
+        width: 100%;
+        border: none !important;
+        padding: 5vh 3vw 0 3vw;
+    }
+
+    .includes-tag,.includes-location {
+        font-size: 3.5vw;
+    }
+    .includes-description {
+        font-size: 4vw;
+    }
+    .carousel-inner img {
+        height: 25vh;
+        margin: 4vh auto;
+    }
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        width: 5vw;
+        height: 5vw;
+    }
 }

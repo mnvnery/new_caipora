@@ -9,5 +9,24 @@
 .contact-img {
     float: right;
     margin-right: 5vw;
-    margin-top: 22vh;
+    margin-top: 5vh;
+}
+
+@media only screen and (max-width: 600px) {
+    .contact {
+        font-size: 4vw;
+        text-align: center;
+        margin-left: 0;
+    }
+    .contact-container {
+        text-align: center;
+        margin: 12vh auto;
+    }
+    
+    .contact-img {
+        float: none;
+        margin: 5vh auto;
+        width: 50vw;
+
+    }
 }

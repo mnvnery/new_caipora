@@ -1,8 +1,27 @@
 <main>
 
-    <h1>Checkout summary</h1>
-    <p>Purchase of <strong><%= @booking.trip.name %></strong> for <strong><%= humanized_money_with_symbol @booking.amount %></strong></p>
-    <button id="pay" class="btn btn-primary">Pay</button>
+    <div class="text-center">
+    <h1><%= @booking.trip.name %></h1>
+    <h1><%= l(@booking.trip.start_date, format: "%d %B", locale: :pt) %> → <%= l(@booking.trip.end_date, format: "%d %B", locale: :pt) %></h1>
+    </div>
+    <div class="d-flex">
+        <div class="viajantes w-100">
+            <div class="border-bottom border-top border-dark text-center blue w-100"><h4 class="pt-2">VIAJANTES</h4></div>
+        </div>
+        <div class="resumo w-100">
+            <div class="border-bottom border-top border-dark text-center w-100"><h4 class="pt-2">RESUMO RESERVA</h4></div>
+            <p>Nome do Responsável</p>
+            <div class="d-flex justify-content-between"><p><u>Viagem: 30%</u> (Obrigatório no momento da reserva)</p><p class="pr-5"><u><%= humanized_money_with_symbol @booking.amount %></u></p></div>
+            <div class='payment-btn'>
+            <%= image_tag 'mountain-blue.svg', class: "reserve-img" %>
+            <h4 class="reserve-text">
+            <div id="pay">VALIDAR</div>
+            </h4>
+        </div>
+        </div>
+    </div>
+
+
 
     <script src="https://js.stripe.com/v3/"></script>
     <script>

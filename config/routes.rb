@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   mount ForestLiana::Engine => '/forest'
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
   devise_for :users
   root to: 'pages#home'
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
   get 'presentation', to: 'pages#presentation'
+  get 'privacy', to: 'pages#privacy'
+  get 'terms', to: 'pages#terms'
   resources :pages
   resources :trips do
     resources :sign_ups, only: [:new, :create]

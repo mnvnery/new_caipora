@@ -1,27 +1,60 @@
-<main>
-<h2>Sign up</h2>
-
+<main class="px-5">
+<div class="w-50">
+<h1>Viajante Responsável</h1>
+<p>O viajante responsável fica encarregue pelo pagamento e tem acesso a toda a informação sobre a reserva na nossa plataforma. É possível no próximo passo adicionar mais viajantes à reserva.</p>
+</div>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
+  <div class="form-inputs w-50">
+      <%= f.input :name,
+                  required: true,
+                  label: 'Nome Completo',
+                  autofocus: true,
+                  input_html: { autocomplete: "name" }%>
+      <%= f.input :mobile,
+                  required: true,
+                  autofocus: true,
+                  label: 'Telefone',
+                  input_html: { autocomplete: "phone", id: 'phone'}%>            
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }%>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} caracteres mínimo" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  label: 'Confirmar Password',
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
+    <div class="form-actions">
+      <div class='confirm-btn pt-2'>
+        <%= image_tag 'mountain-dark-blue.svg', class: "reserve-img" %>
+        <h4><%= f.button :submit, "CONFIRMAR", class: "reserve-text mt-1" %></h4>
+      </div>
+    </div>
+</div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<p><u>Já tem conta connosco?</u><b><%= render "devise/shared/links" %></b></p>
 </main>
+<script>
+  const phoneInputField = document.querySelector("#phone");
+  const phoneInput = window.intlTelInput(phoneInputField, {
+    utilsScript:
+      "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    initialCountry: "pt",
+  });
+  function process(event) {
+  event.preventDefault();
+
+  const phoneNumber = phoneInput.getNumber();
+
+  info.style.display = "";
+  info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
+  }
+</script>
