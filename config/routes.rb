@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :programs
   end
 
-  resources :bookings, only: [:show, :create] do
+  resources :bookings, only: [:index, :show, :create] do
     resources :payments, only: :new
   end
 

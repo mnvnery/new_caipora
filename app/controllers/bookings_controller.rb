@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
     def index
-        @bookings = Booking.all
+        @bookings = current_user.bookings.all
     end
 
     def show
@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
             payment_method_types: ['card'],
             line_items: [{
                 name: trip.name,
-                amount: trip.price_cents,
+                amount: (trip.price_cents*0.3).to_i,
                 currency: 'eur',
                 quantity: 1
                 }],
