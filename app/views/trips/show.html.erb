@@ -1,5 +1,3 @@
-<img class="header-img desktop" src="/assets/header-green.svg" alt="CAIPORA">
-<img class="header-img mobile" src="/assets/mobile-header-green.svg" alt="CAIPORA">
 <main>
 <h1 class='text-center my-4'><%= l(@trip.start_date, format: "%d %B", locale: :pt) %> → <%= l(@trip.end_date, format: "%d %B", locale: :pt) %></h1>
 <% if @trip.name == 'Guatemala' %>
@@ -11,19 +9,30 @@
 <% end %>
 
 <div class="trip-info text-center">
+<% if @trip.name == 'Guatemala' %>
     <div> 
         <h4>DATAS DISPONÍVEIS</h4>
         <h4>–</h4>
         <h4>POR MARCAÇÃO</h4>
         <h4>(TODO O ANO)</h4>
     </div>
+<% elsif @trip.name == 'Amazónia' %>
+    <div> 
+        <h4>DATAS DISPONÍVEIS</h4>
+        <h4>–</h4>
+        <h4>25 JUN → 10 JUL 2021</h4>
+        <h4>5 SET → 25 SET 2021</h4>
+    </div>
+<% end %>
     <div class="border-right border-dark"></div>
     <div class=".d-none .d-sm-block border-bottom border-dark my-2"></div>
     <div>
         <h4>PREÇO</h4>
         <h4>–</h4>
-        <h4><%= humanized_money_with_symbol(@trip.price) %> (VOO NÃO INCLUÍDO)<h4>
+        <h4><%= humanized_money_with_symbol(@trip.price) %> <% if @trip.name == 'Amazónia' %><h4></h4><% end %><strong>(VOO NÃO INCLUÍDO)</strong><h4>
+    <% if @trip.name == 'Guatemala' %>
         <h5 class="mt-2">MÍNIMO DE 4 / MÁXIMO DE 14 PESSOAS</h5>
+    <% end %>
     </div>
     <div class="border-right border-dark"></div>
     <div class=".d-none .d-sm-block border-bottom border-dark my-2"></div>

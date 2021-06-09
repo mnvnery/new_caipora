@@ -45,7 +45,9 @@ trix-editor.form-control {
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
+body {
+    background-color: $ocre;
+}
 h1 {
     font-family: "HKGrotesk-Bold";
     font-size: 1.9vw;

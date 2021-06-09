@@ -1,4 +1,4 @@
-<div class="menu sidenav <%= background? %>">
+<div class="menu sidenav">
     <button class="hamburger hamburger--squeeze" type="button">
         <span class="hamburger-box">
         <span class="hamburger-inner"></span>
@@ -8,7 +8,7 @@
         <a class="sidebar-link <%= current_class?('/presentation') %>" href="/presentation"><p>APRESENTAÇÃO</p></a>
         <a class="sidebar-link <%= current_class?('/about') %>" href="/about"><p>SOBRE NÓS</p></a>
         <a class="sidebar-link" href="#"><p class="mb-1">VIAGENS</p></a>
-        <a class="sidebar-forward-link <%= current_class?('/trips/1') %>" href="<%= trip_path(1) %>"><p class="mb-1">AMAZÓNIA</p></a>
+        <a class="sidebar-forward-link <%= current_class?('/trips/1') %>" href="<%= trip_path(1) %>"><p class="mb-1 mt-1">AMAZÓNIA</p></a>
         <a class="sidebar-forward-link <%= current_class?('/trips/2') %>" href="<%= trip_path(2) %>"><p>GUATEMALA</p></a>
         <a class="sidebar-link <%= current_class?('/contact') %>" href="/contact"><p>CONTACTO</p></a>
         <%= link_to "LOG OUT", destroy_user_session_path, :method => :delete %>
@@ -20,6 +20,6 @@
     </div>
 </div>
 
-<div class="title-left desktop <%= background? %><%= home? %>">
+<div class="title-left desktop <%= home? %>">
     <p class="page-left"><%= page_name? %></p>
 </div>

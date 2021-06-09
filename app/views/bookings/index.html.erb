@@ -1,0 +1,9 @@
+<main>
+<h1>AS MINHAS RESERVAS</h1>
+<p><%= current_user.name %></p>
+<% @bookings.each do |booking| %>
+    <p><%= booking.id %></p>
+    <p><%= booking.trip.name %></p>
+    <p><%= booking.state %></p>
+<% end %>
+</main>

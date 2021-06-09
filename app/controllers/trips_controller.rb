@@ -1,5 +1,6 @@
 class TripsController < ApplicationController
     skip_before_action :authenticate_user!
+    layout "application-green"
 
     def index
         @trips = Trip.all

@@ -14,11 +14,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body class="<%= body_background? %>">
+  <body>
+    <a href="/"><img class="header-img desktop" src="/assets/header.svg" alt="CAIPORA"></a>
+    <a href="/"><img class="header-img mobile" src="/assets/mobile-header.svg" alt="CAIPORA"></a>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
     <%= yield %>
-  <%= render 'shared/footer' %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_134029) do
+ActiveRecord::Schema.define(version: 2021_06_08_110707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,20 +65,6 @@ ActiveRecord::Schema.define(version: 2021_06_03_134029) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "clients", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "phone"
-    t.string "address"
-    t.string "post_code"
-    t.string "city"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "fiscal_number"
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_clients_on_user_id"
-  end
-
   create_table "faqs", force: :cascade do |t|
     t.bigint "trip_id", null: false
     t.string "question"
@@ -115,6 +101,16 @@ ActiveRecord::Schema.define(version: 2021_06_03_134029) do
     t.index ["trip_id"], name: "index_programs_on_trip_id"
   end
 
+  create_table "travellers", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "mobile"
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_travellers_on_booking_id"
+  end
+
   create_table "trips", force: :cascade do |t|
     t.string "name"
     t.date "start_date"
@@ -144,8 +140,8 @@ ActiveRecord::Schema.define(version: 2021_06_03_134029) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "trips"
   add_foreign_key "bookings", "users"
-  add_foreign_key "clients", "users"
   add_foreign_key "faqs", "trips"
   add_foreign_key "includes", "trips"
   add_foreign_key "programs", "trips"
+  add_foreign_key "travellers", "bookings"
 end
