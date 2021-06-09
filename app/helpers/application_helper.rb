@@ -4,30 +4,6 @@ module ApplicationHelper
         ''
     end
 
-    def background?
-        if request.path == "/about"
-            return "pink"
-        elsif request.path == "/contact" || request.path == "/presentation" || request.path == "/trips/2/sign_ups/new" || request.path == "/trips/1/sign_ups/new" || request.path == "/trips/1/sign_ups/" || request.path == "/trips/2/sign_ups/" || request.path == "/privacy" || request.path == "/terms"
-            return "blue"
-        elsif request.path == "/trips/1" || request.path == "/trips/2"
-            return "green"
-        else
-            return ""
-        end        
-    end
-
-    def body_background?
-        if request.path == "/about"
-            return "light-pink"
-        elsif request.path == "/contact" || request.path == "/presentation" || request.path == "/trips/2/sign_ups/new" || request.path == "/trips/1/sign_ups/new" || request.path == "/trips/1/sign_ups/" || request.path == "/trips/2/sign_ups/"|| request.path == "/privacy" || request.path == "/terms"
-            return "light-blue"
-        elsif request.path == "/trips/1" || request.path == "/trips/2"
-            return "light-green"
-        else
-            return "ocre"
-        end        
-    end
-
     def page_name?
             if request.path == "/about"
                 return "SOBRE NÓS"
@@ -42,6 +18,10 @@ module ApplicationHelper
             else 
                 return ""
         end
+    end
+
+    def pres?
+        return "page-left-smaller" if request.path == "/presentation"     
     end
 
     def home?

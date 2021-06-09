@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!
+  layout "devise", only: [:contact, :presentation, :privacy, :terms]
+
   def index
     @page = Page.all
   end
@@ -25,8 +27,13 @@ class PagesController < ApplicationController
   def home
   end
 
+  def test
+  end
+
   def about
+
     @page = Page.find_by name:'about'
+    render :layout => 'application-pink'
   end
 
   def contact

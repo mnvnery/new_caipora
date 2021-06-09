@@ -5,8 +5,8 @@
 <div class="map-grid">
     <div class="venezuela-flex">
         
-        <img class="locations" src="/assets/venezuela.webp" alt="venezuela">
-        <div class="dot-flex"><span class="dot dot-venezuela"></span><span class="dot-title dot-title-venezuela">VENEZUELA</span></div>
+        <img class="locations" src="/assets/venezuela.webp" alt="guatemala">
+        <div class="dot-flex"><span class="dot dot-venezuela"></span><span class="dot-title dot-title-venezuela">GUATEMALA</span></div>
     </div>
     <div class="amazonia-flex">
         <div class="dot-flex"><span class="dot dot-amazonia"></span><span class="dot-title dot-title-amazonia">AMAZÓNIA</span></div>
@@ -15,17 +15,19 @@
             
         </div>
     </div>
-    <canvas id='canvas' width=1920 height=1080 style='position: absolute; top:0; left: 0'></canvas>
+    <canvas id='canvas' width=1920 height=800 style='position: absolute; top:0; left: 0'></canvas>
 </div>
 
 <script>
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d'),
-    radius = 40;
+    brush = new Image();
+
+    brush.src = 'assets/brush.png'
 
 //prepare canvas
 ctx.fillStyle = '#F9E9D1'
-ctx.fillRect(0, 0, 1920, 1080);
+ctx.fillRect(0, 0, 1920, 800);
 
 //prepare a 30% opacity eraser
 ctx.globalCompositeOperation = 'destination-out';
@@ -37,12 +39,10 @@ canvas.onmousemove = function(e) {
     x = e.clientX - r.left,
     y = e.clientY - r.top;
 
-    ctx.beginPath();
-    ctx.lineCap = ctx.lineJoin = 'round';
-    ctx.moveTo(x + radius, y);
-    ctx.arc(x, y, radius, 0, 2*Math.PI);
-    ctx.fill();
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.drawImage(brush, x, y);
     
 
 }
+
 </script>

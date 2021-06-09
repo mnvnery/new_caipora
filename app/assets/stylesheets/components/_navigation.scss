@@ -48,8 +48,8 @@
     display: block;
     transition: 0.3s;
     font-family: "Pangram-Medium";
-    letter-spacing: 0.35vw;
-    font-size: 1.2vw;
+    letter-spacing: 0.30vw;
+    font-size: 1.1vw;
     line-height: 0;
 }
 
@@ -101,15 +101,20 @@
 .page-left {
     writing-mode: vertical-rl;
     text-orientation: upright;
-    letter-spacing: 4.5vh;
+    letter-spacing: 5vh;
     font-family: "Pangram-ExtraBold" ;
-    font-size: 1.78vw;
+    font-size: 1.8vw;
     margin: 0;
     float: right;
     position: absolute;
     top: 12vh;
     right: 0;
     margin-right: 1.3vw;
+}
+
+.page-left-smaller {
+    letter-spacing: 3vh;
+    font-size: 1.7vw;
 }
 
 .home-hide {

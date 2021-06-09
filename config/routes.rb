@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   mount StripeEvent::Engine, at: '/stripe-webhooks'
   devise_for :users
   root to: 'pages#home'
+  get 'test', to: 'pages#test'
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
   get 'presentation', to: 'pages#presentation'
